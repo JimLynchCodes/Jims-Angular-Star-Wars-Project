@@ -6,9 +6,7 @@ _Try the live demo [here](https://jimtheman.github.io/Jims-Angular-Star-Wars-Pro
 
 <img src="./jims-star-wars-demo.gif"/>
 
-Scaffolded from the awesome [Angular Webpack Starter](https://github.com/qdouble/angular-webpack-starter) project.
-
-## Purpose
+## About This Project
 
 This project was created as a submission to a coding challenge. It's nice example of an Angular 5 example that uses Ngrx and makes GET requests. 
 
@@ -20,6 +18,8 @@ This project was created as a submission to a coding challenge. It's nice exampl
 
 
 ## Project Technical Features
+
+This project was scaffolded from the awesome [Angular Webpack Starter](https://github.com/qdouble/angular-webpack-starter) project.
 
 * Angular 2
   * Async loading
