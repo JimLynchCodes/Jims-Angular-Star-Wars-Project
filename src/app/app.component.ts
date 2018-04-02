@@ -32,18 +32,18 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.cache.set('cached', true);
     let a = this.store.pipe(select(fromRoot.getUserLoaded));
-    a.subscribe(l => console.log(l));
+    // a.subscribe(l => console.log(l));
   }
 
   activateEvent(event) {
     if (ENV === 'development') {
-      console.log('Activate Event:', event);
+      // console.log('Activate Event:', event);
     }
   }
 
   deactivateEvent(event) {
     if (ENV === 'development') {
-      console.log('Deactivate Event', event);
+      // console.log('Deactivate Event', event);
     }
   }
 }

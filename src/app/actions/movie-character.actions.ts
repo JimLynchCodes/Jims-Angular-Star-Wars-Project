@@ -29,7 +29,7 @@ export class LoadCharacterListSuccess implements Action {
 export class LoadCharacterListFail implements Action {
     readonly type = MovieCharacterActionTypes.LoadCharacterListFail;
 
-    constructor(public payload: string) { }
+    constructor() { }
 }
 
 export class ChangeCharacterSelected implements Action {
@@ -53,7 +53,7 @@ export class GetCharacterDataSuccess implements Action {
 export class GetCharacterDataFail implements Action {
     readonly type = MovieCharacterActionTypes.GetCharacterDataFail;
 
-    constructor(public payload: Response | string) { }
+    constructor(public payload: {'movieCharacter': string}) { }
 }
 
 export type MovieCharacterActions =

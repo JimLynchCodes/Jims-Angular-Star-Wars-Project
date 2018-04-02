@@ -1,5 +1,3 @@
-import {Router} from '@angular/router';
-import {Location} from '@angular/common';
 import {Effect, Actions, ofType} from '@ngrx/effects';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
@@ -11,36 +9,36 @@ import {Store} from "@ngrx/store";
 @Injectable()
 export class MovieCharacterEffects {
 
-    constructor(private http: HttpClient, private actions$: Actions, private store: Store<any>) { }
+    constructor(private http: HttpClient, private actions$: Actions, private store: Store<any>) {
+    }
 
     @Effect() LoadCharacterList$ = this.actions$
         .ofType(MovieCharacterActionTypes.LoadCharacterList)
-        .map(action => JSON.stringify(action.payload))
+        .map((action: any) => JSON.stringify(action.payload))
         .switchMap(payload => {
             return this.http.get('./../../../assets/characters.json')
-                .switchMap(res => {
+                .switchMap((res: any) => {
                     return Observable.of({
                         type: MovieCharacterActionTypes.LoadCharacterListSuccess,
-                        payload: res.characters.map((movieCharacter) => {
+                        payload: res.characters.map((movieCharacter: any) => {
                             movieCharacter.movies = [];
                             return movieCharacter;
                         })
                     })
                 })
                 .catch((error) => {
-                    Observable.of({type: MovieCharacterActionTypes.LoadCharacterListFail})
+                    return Observable.of({type: MovieCharacterActionTypes.LoadCharacterListFail})
                 });
-
         });
 
     @Effect() LoadCharacterDetails$ = this.actions$
         .ofType(MovieCharacterActionTypes.GetCharacterDataBegin)
-        .map(action => JSON.stringify(action.payload))
-        .switchMap(payload => {
+        .map((action: any) => JSON.stringify(action.payload))
+        .switchMap((payload: any) => {
             payload = JSON.parse(payload);
             return this.http.get(payload.url)
-                .switchMap(res => {
-                    return Observable.forkJoin(res.films.map(film => {
+                .switchMap((res: any) => {
+                    return Observable.forkJoin(res.films.map((film: any) => {
                         return this.http.get(film)
                             .map(filmResponse => {
                                 return {...filmResponse, 'movieUrl': film}
@@ -55,13 +53,8 @@ export class MovieCharacterEffects {
                 .catch((error) => {
                     return Observable.of({
                         type: MovieCharacterActionTypes.GetCharacterDataFail,
-                        'movieCharacter': payload.name
+                        payload: {'movieCharacter': payload.name}
                     })
                 });
         })
-
-    constructor(private actions$: Actions,
-                private router: Router,
-                private location: Location) {
-    }
 }
