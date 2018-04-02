@@ -5,7 +5,7 @@
 
 <img src="./Jims-star-wars-tool-demo.gif"/>
 
-
+<img src="./gg.gif" width="400"/>
 Scaffolded from the awesome [Angular Webpack Starter](https://github.com/qdouble/angular-webpack-starter) project.
 
 ## Features
