@@ -1,7 +1,20 @@
 #my-page-card {
   min-height: 100%;
+  //html {
+  background:
+          radial-gradient(#d1fff3 2px, transparent 3px),
+          radial-gradient(#c9e6f1 2px, transparent 3px),
+          #fff;
+  background-position: 0 0, 20px 20px;
+  background-size: 40px 40px;
+  font-family: 'Lobster', cursive;
 }
 
 ul, li{
   display: inline;
+}
+
+.fancy-card {
+  background-color: #d2e0f7;
+  display: flex;
 }

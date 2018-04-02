@@ -4,6 +4,7 @@ import { NavigationExtras } from '@angular/router';
 export const GO = '[Router] Go';
 export const BACK = '[Router] Back';
 export const FORWARD = '[Router] Forward';
+export const CHANGE_CHARACTER = '[CHANGE_CHARACTER] Forward';
 
 export class Go implements Action {
   readonly type = GO;
@@ -19,6 +20,10 @@ export class Back implements Action {
   readonly type = BACK;
 }
 
+export class ChangeCharacter implements Action {
+  readonly type = CHANGE_CHARACTER;
+}
+
 export class Forward implements Action {
   readonly type = FORWARD;
 }
@@ -26,4 +31,5 @@ export class Forward implements Action {
 export type Actions
   = Go
   | Back
-  | Forward;
+  | Forward
+  | ChangeCharacter;

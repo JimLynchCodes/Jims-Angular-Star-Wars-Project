@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
-
+import { HttpModule } from '@angular/http';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 
 import { Store } from '@ngrx/store';
@@ -30,11 +30,12 @@ import { routes } from './app.routing';
 import { AppComponent } from './app.component';
 
 import { AppState } from './reducers';
+import {SHARED_FORM_DIRECTIVES} from "@angular/forms/src/directives";
 
 @NgModule({
   declarations: [
     AppComponent,
-    APP_DECLARATIONS
+    APP_DECLARATIONS,
   ],
   entryComponents: [APP_ENTRY_COMPONENTS],
   imports: [

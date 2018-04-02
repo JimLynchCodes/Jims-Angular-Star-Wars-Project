@@ -1,18 +1,45 @@
-<header>
-  <h3> Welcome Jim's Star Wars Project {{user.name}}!</h3>
-</header>
+<br>
 <section>
-  <ng-container *ngIf="testSub$ | async">Api test sub: {{ testSub$ | async }}</ng-container>
+    <mat-card class="fancy-card">
+        <h4 *ngIf="characterSelected === ''">Please select a Star Wars character!</h4>
+        <h4 *ngIf="characterSelected !== ''">Character Selected: {{characterSelected}}</h4>
+    </mat-card>
+    <br>
 
-  <img src='./../../assets/images/skywalker_luke.jpg' (click)='characterClicked("luke")'/>
-  <!--<form [formGroup]="form" (ngSubmit)="submitState()" autocomplete="off">-->
-    <!--<mat-form-field> -->
-      <!--<input matInput formControlName="name" [placeholder]="nameLabel">-->
-    <!--</mat-form-field>   -->
-    <!--<br>-->
-    <!--<button mat-raised-button color="primary">Update store</button>-->
-    <!--<button mat-raised-button color="accent" type="button" (click)="clearName()">Clear name</button>-->
-  <!--</form>-->
-  <!--<br><br>-->
-    <!--<button id="my-logout-button" mat-raised-button color="accent" (click)="logout()">Logout</button>-->
+    <mat-card class="fancy-card">
+        <mat-form-field class="search-input">
+            <mat-option>
+                <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto"
+                       (keyup)="onKey($event)">
+            </mat-option>
+
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="characterChosen(this.myControl.value)"
+                              (blur)="autocompleteBlurr()">
+                <mat-option *ngFor="let option of filterStates(this.myControl.value)" [value]="option.name">
+                    {{ option.name}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+    </mat-card>
+
+    <br>
+
+    <mat-card *ngIf="errorOccurred" class="fancy-card">
+        <h5>Oh dear... there seems to be an error with that request!</h5>
+    </mat-card>
+
+
+    <div *ngIf="characterSelected !== ''">
+        <div *ngFor="let movie of moviesDisplayed">
+
+            <mat-card class="fancy-card column-direction">
+                <h2>{{movie.title}}</h2>
+                <div>
+                    <h5>Released {{movie.release_date | date:'fullDate'}}</h5>
+                </div>
+            </mat-card>
+            <br>
+        </div>
+    </div>
+
 </section>

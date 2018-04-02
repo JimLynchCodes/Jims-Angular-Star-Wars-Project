@@ -14,6 +14,7 @@ import { DEV_REDUCERS, syncReducers, resetOnLogout, AppState } from './reducers'
 import { StoreDevToolsModule } from './features/store-devtools.module';
 import { RouterEffects } from './effects/router';
 import { UserEffects } from './user/user.effects';
+import { MovieCharacterEffects } from './effects/movie-character.effects';
 import { userReducer } from './user/user.reducer';
 
 const STORE_DEV_TOOLS_IMPORTS = [];
@@ -22,7 +23,7 @@ if (ENV === 'development' && !AOT &&
 ) STORE_DEV_TOOLS_IMPORTS.push(...[
   StoreDevtoolsModule.instrument({
     monitor: useLogMonitor({
-      visible: true,
+      visible: false,
       position: 'right'
     })
   })
@@ -34,7 +35,8 @@ export const metaReducers: MetaReducer<AppState>[] = ENV === 'development' ?
 export const APP_IMPORTS = [
   EffectsModule.forRoot([
     RouterEffects,
-    UserEffects
+    UserEffects,
+    MovieCharacterEffects
   ]),
   MaterialModule,
   ReactiveFormsModule,

@@ -22,7 +22,7 @@ export function userReducer(state = initialState, action: UserActions): UserStat
     case UserActionTypes.EditUser: {
       return {
         ...state,
-        user: action.payload
+        user: action.payload,
       };
     }
 
