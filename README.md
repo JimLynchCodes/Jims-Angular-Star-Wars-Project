@@ -1,7 +1,6 @@
 # Jim's Star Wars Project
 
-
-ok
+[![Build Status](https://travis-ci.org/JimTheMan/Jims-Angular-Star-Wars-Project.svg?branch=master)](https://travis-ci.org/JimTheMan/Jims-Angular-Star-Wars-Project)
 
 _Try the live demo [here](https://jimtheman.github.io/Jims-Angular-Star-Wars-Project/)!_
 
