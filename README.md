@@ -3,13 +3,19 @@
 
 ok
 
-_Try the live demo [here](www.google.com)!_
+_Try the live demo [here](https://jimtheman.github.io/Jims-Angular-Star-Wars-Project/)!_
 
 <img src="./gg.gif"/>
 
 Scaffolded from the awesome [Angular Webpack Starter](https://github.com/qdouble/angular-webpack-starter) project.
 
-## Features
+## Purpose
+
+This project was created as a submission to a coding challenge. It's nice example of an Angular 5 example that uses Ngrx and makes GET requests. 
+
+
+
+## Project Technical Features
 
 * Angular 2
   * Async loading

@@ -5,6 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import {MovieCharacterActionTypes} from '../actions/movie-character.actions';
 import 'rxjs/add/observable/forkJoin';
 import {Store} from '@ngrx/store';
+const charactersJson = './app/effects/characters.json';
 
 @Injectable()
 export class MovieCharacterEffects {
@@ -13,7 +14,7 @@ export class MovieCharacterEffects {
         .ofType(MovieCharacterActionTypes.LoadCharacterList)
         .map((action: any) => JSON.stringify(action.payload))
         .switchMap(payload => {
-            return this.http.get('./../../../assets/characters.json')
+            return this.http.get(charactersJson)
                 .switchMap((res: any) => {
                     return Observable.of({
                         type: MovieCharacterActionTypes.LoadCharacterListSuccess,
