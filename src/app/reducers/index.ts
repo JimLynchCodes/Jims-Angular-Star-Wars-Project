@@ -14,8 +14,8 @@ import { routerReducer, RouterReducerState, RouterStateSerializer } from '@ngrx/
 import * as fromRouter from '@ngrx/router-store';
 
 import * as fromUser from '../user/user.reducer';
-import * as fromMovieCharacterReducer from './movie-character.reducer'
-import {MovieCharactersState} from "./movie-character.reducer";
+import * as fromMovieCharacterReducer from './movie-character.reducer';
+import {MovieCharactersState} from './movie-character.reducer';
 
 export interface RouterStateUrl {
   url: string;
@@ -31,7 +31,7 @@ const modules = {
 export interface AppState {
   router: fromRouter.RouterReducerState<RouterStateUrl>;
   user: fromUser.UserState;
-  movieCharacters: MovieCharactersState
+  movieCharacters: MovieCharactersState;
 }
 
 export const syncReducers = {

@@ -15,7 +15,7 @@
 
             <mat-autocomplete #auto="matAutocomplete" (optionSelected)="characterChosen(this.myControl.value)"
                               (blur)="autocompleteBlurr()">
-                <mat-option *ngFor="let option of filterStates(this.myControl.value)" [value]="option.name">
+                <mat-option *ngFor="let option of filterStates(this.myControl.value);trackBy: index" [value]="option.name">
                     {{ option.name}}
                 </mat-option>
             </mat-autocomplete>
@@ -30,7 +30,7 @@
 
 
     <div *ngIf="characterSelected !== ''">
-        <div *ngFor="let movie of moviesDisplayed">
+        <div *ngFor="let movie of moviesDisplayed;trackBy: index">
 
             <mat-card class="fancy-card column-direction">
                 <h2>{{movie.title}}</h2>

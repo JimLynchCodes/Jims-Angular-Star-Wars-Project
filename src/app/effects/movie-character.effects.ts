@@ -2,17 +2,14 @@ import {Effect, Actions, ofType} from '@ngrx/effects';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import {MovieCharacterActionTypes} from "../actions/movie-character.actions";
-import 'rxjs/add/observable/forkJoin'
-import {Store} from "@ngrx/store";
+import {MovieCharacterActionTypes} from '../actions/movie-character.actions';
+import 'rxjs/add/observable/forkJoin';
+import {Store} from '@ngrx/store';
 
 @Injectable()
 export class MovieCharacterEffects {
 
-    constructor(private http: HttpClient, private actions$: Actions, private store: Store<any>) {
-    }
-
-    @Effect() LoadCharacterList$ = this.actions$
+    @Effect() loadCharacterList$ = this.actions$
         .ofType(MovieCharacterActionTypes.LoadCharacterList)
         .map((action: any) => JSON.stringify(action.payload))
         .switchMap(payload => {
@@ -24,14 +21,14 @@ export class MovieCharacterEffects {
                             movieCharacter.movies = [];
                             return movieCharacter;
                         })
-                    })
+                    });
                 })
                 .catch((error) => {
-                    return Observable.of({type: MovieCharacterActionTypes.LoadCharacterListFail})
+                    return Observable.of({type: MovieCharacterActionTypes.LoadCharacterListFail});
                 });
         });
 
-    @Effect() LoadCharacterDetails$ = this.actions$
+    @Effect() loadCharacterDetails$ = this.actions$
         .ofType(MovieCharacterActionTypes.GetCharacterDataBegin)
         .map((action: any) => JSON.stringify(action.payload))
         .switchMap((payload: any) => {
@@ -41,20 +38,23 @@ export class MovieCharacterEffects {
                     return Observable.forkJoin(res.films.map((film: any) => {
                         return this.http.get(film)
                             .map(filmResponse => {
-                                return {...filmResponse, 'movieUrl': film}
-                            })
-                    })).switchMap((res) => {
+                                return {...filmResponse, 'movieUrl': film};
+                            });
+                    })).switchMap((response) => {
                         return Observable.of({
                             'type': MovieCharacterActionTypes.GetCharacterDataSuccess,
-                            'payload': {'movieCharacter': payload.name, 'movies': res}
-                        })
-                    })
+                            'payload': {'movieCharacter': payload.name, 'movies': response}
+                        });
+                    });
                 })
                 .catch((error) => {
                     return Observable.of({
                         type: MovieCharacterActionTypes.GetCharacterDataFail,
                         payload: {'movieCharacter': payload.name}
-                    })
+                    });
                 });
-        })
+        });
+
+        constructor(private http: HttpClient, private actions$: Actions,
+            private store: Store<any>) { }
 }

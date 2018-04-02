@@ -1,10 +1,10 @@
 /* tslint:disable: no-switch-case-fall-through */
-import {MovieCharacterActionTypes, MovieCharacterActions} from "../actions/movie-character.actions";
+import {MovieCharacterActionTypes, MovieCharacterActions} from '../actions/movie-character.actions';
 
 export interface MovieCharactersState {
     characterData: {};
-    characterSelected: any,
-    errorOccurred: boolean
+    characterSelected: any;
+    errorOccurred: boolean;
 }
 
 export const initialState: MovieCharactersState = {
@@ -13,7 +13,8 @@ export const initialState: MovieCharactersState = {
     errorOccurred: false
 };
 
-export function movieCharacterReducer(state = initialState, action: MovieCharacterActions): MovieCharactersState {
+export function movieCharacterReducer(state = initialState,
+    action: MovieCharacterActions): MovieCharactersState {
 
     switch (action.type) {
 
@@ -42,10 +43,9 @@ export function movieCharacterReducer(state = initialState, action: MovieCharact
                 errorOccurred: false,
                 characterData: tempState.characterData.map(characterObj => {
                     if (characterObj.name === action.payload.movieCharacter) {
-                        return {...characterObj, movies: action.payload.movies}
-                    }
-                    else {
-                        return characterObj
+                        return {...characterObj, movies: action.payload.movies};
+                    } else {
+                        return characterObj;
                     }
                 })
             };

@@ -4,8 +4,10 @@ import {Store} from '@ngrx/store';
 import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import {ChangeCharacterSelected, LoadCharacterList, GetCharacterDataBegin} from "../actions/movie-character.actions";
-import {MatAutocomplete} from "@angular/material";
+import {ChangeCharacterSelected,
+        LoadCharacterList,
+        GetCharacterDataBegin} from '../actions/movie-character.actions';
+import {MatAutocomplete} from '@angular/material';
 
 @Component({
     selector: 'my-dashboard',
@@ -15,14 +17,14 @@ import {MatAutocomplete} from "@angular/material";
 
 export class DashboardComponent {
 
-    private characterSelected: string = "";
+    @ViewChild(MatAutocomplete) matAutocomplete: MatAutocomplete;
+    private characterSelected: string = '';
     private movieCharacters = [];
     private moviesDisplayed = [];
     private keys = [];
     private errorOccurred = false;
-    myControl: FormControl = new FormControl();
-    options = ['a', 'b', 'c']
-    @ViewChild(MatAutocomplete) matAutocomplete: MatAutocomplete;
+    private myControl: FormControl = new FormControl();
+    private options = ['a', 'b', 'c'];
 
     filterStates(name: string): string[] {
         if (!name) {
@@ -32,7 +34,7 @@ export class DashboardComponent {
             if (this.movieCharacters.length > 0) {
                 return this.movieCharacters.filter(state => {
                     return state.name.toLowerCase().indexOf(name.toLowerCase()) === 0;
-                })
+                });
             }
 
         }
@@ -40,7 +42,7 @@ export class DashboardComponent {
 
     onKey(event) {
         if (event.key === 'Enter' && this.myControl.value === '') {
-            this.store.dispatch(new ChangeCharacterSelected(''))
+            this.store.dispatch(new ChangeCharacterSelected(''));
         }
     }
 
@@ -53,17 +55,17 @@ export class DashboardComponent {
                         this.store.dispatch(new GetCharacterDataBegin({
                             'name': movieCharacter.name,
                             'url': movieCharacter.url
-                        }))
+                        }));
                     } else {
-                        this.store.dispatch(new ChangeCharacterSelected(movieCharacter.name))
+                        this.store.dispatch(new ChangeCharacterSelected(movieCharacter.name));
                     }
                 }
             }
-        })
+        });
     }
 
     constructor(private http: HttpClient, private store: Store<any>) {
-        this.store.dispatch(new LoadCharacterList())
+        this.store.dispatch(new LoadCharacterList());
         this.store.select(state => state)
             .subscribe((state) => {
                 if (state.movieCharacters.errorOccurred) {
@@ -82,13 +84,12 @@ export class DashboardComponent {
                 if (state.movieCharacters.characterData) {
                     this.movieCharacters = state.movieCharacters.characterData;
 
-                    for (var i = 0; i < this.movieCharacters.length; i++) {
+                    for (let i = 0; i < this.movieCharacters.length; i++) {
                         if (this.movieCharacters[i].name === this.characterSelected) {
                             this.moviesDisplayed = this.movieCharacters[i].movies;
                         }
                     }
                 }
-            })
+            });
     }
-
 }
