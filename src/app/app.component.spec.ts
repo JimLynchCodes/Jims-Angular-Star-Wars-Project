@@ -10,10 +10,9 @@ import {
 } from '../modules/transfer-state/browser-transfer-state.module';
 
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './features/dashboard.component';
+import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { NotFound404Component } from './not-found404.component';
 import { routes } from './app.routing';
-import { StoreDevToolsModule } from './features/store-devtools.module';
 
 import 'rxjs/add/operator/takeUntil';
 
@@ -26,7 +25,6 @@ describe('App Component', () => {
         MaterialModule,
         ReactiveFormsModule,
         RouterTestingModule.withRoutes(routes),
-        StoreDevToolsModule
         ],
       providers: [],
       declarations: [AppComponent, DashboardComponent, NotFound404Component]

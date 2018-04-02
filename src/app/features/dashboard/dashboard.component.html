@@ -1,4 +1,3 @@
-<br>
 <section>
     <mat-card class="fancy-card">
         <h4 *ngIf="characterSelected === ''">Please type or select a Star Wars character!</h4>
@@ -15,7 +14,8 @@
 
             <mat-autocomplete #auto="matAutocomplete" (optionSelected)="characterChosen(this.myControl.value)"
                               (blur)="autocompleteBlurr()">
-                <mat-option *ngFor="let option of filterStates(this.myControl.value);trackBy: index" [value]="option.name">
+                <mat-option *ngFor="let option of filterStates(this.myControl.value);trackBy: index"
+                            [value]="option.name">
                     {{ option.name}}
                 </mat-option>
             </mat-autocomplete>
@@ -28,16 +28,9 @@
         <h5>Oh dear... there seems to be an error with that request!</h5>
     </mat-card>
 
-
     <div *ngIf="characterSelected !== ''">
         <div *ngFor="let movie of moviesDisplayed;trackBy: index">
-
-            <mat-card class="fancy-card column-direction">
-                <h2>{{movie.title}}</h2>
-                <div>
-                    <h5>Released {{movie.release_date | date:'fullDate'}}</h5>
-                </div>
-            </mat-card>
+            <movie-card [movie]="movie"></movie-card>
             <br>
         </div>
     </div>

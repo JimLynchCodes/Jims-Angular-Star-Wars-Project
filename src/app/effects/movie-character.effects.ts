@@ -56,6 +56,7 @@ export class MovieCharacterEffects {
                 });
         });
 
-        constructor(private http: HttpClient, private actions$: Actions,
-            private store: Store<any>) { }
+    constructor(private http: HttpClient, private actions$: Actions,
+                private store: Store<any>) {
+    }
 }

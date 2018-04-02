@@ -4,15 +4,17 @@ import {Store} from '@ngrx/store';
 import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import {ChangeCharacterSelected,
-        LoadCharacterList,
-        GetCharacterDataBegin} from '../actions/movie-character.actions';
+import {
+    ChangeCharacterSelected,
+    LoadCharacterList,
+    GetCharacterDataBegin
+} from '../../actions/movie-character.actions';
 import {MatAutocomplete} from '@angular/material';
 
 @Component({
     selector: 'my-dashboard',
-    templateUrl: './dashboard.component.html',
-    styleUrls: ['dashboard.component.scss', './../app.component.scss']
+    templateUrl: 'dashboard.component.html',
+    styleUrls: ['dashboard.component.scss', '../../app.component.scss']
 })
 
 export class DashboardComponent {
@@ -36,7 +38,6 @@ export class DashboardComponent {
                     return state.name.toLowerCase().indexOf(name.toLowerCase()) === 0;
                 });
             }
-
         }
     }
 

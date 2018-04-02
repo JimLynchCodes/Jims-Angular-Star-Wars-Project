@@ -11,7 +11,6 @@ import { MaterialModule } from './material.module';
 import { TransferHttpModule } from '../modules/transfer-http/transfer-http.module';
 
 import { DEV_REDUCERS, syncReducers, resetOnLogout, AppState } from './reducers';
-import { StoreDevToolsModule } from './features/store-devtools.module';
 import { RouterEffects } from './effects/router';
 import { UserEffects } from './user/user.effects';
 import { MovieCharacterEffects } from './effects/movie-character.effects';
@@ -45,6 +44,5 @@ export const APP_IMPORTS = [
     stateKey: 'router' // name of reducer key
   }),
   STORE_DEV_TOOLS_IMPORTS,
-  StoreDevToolsModule,
   TransferHttpModule
 ];

@@ -30,7 +30,6 @@ import { routes } from './app.routing';
 import { AppComponent } from './app.component';
 
 import { AppState } from './reducers';
-import {SHARED_FORM_DIRECTIVES} from '@angular/forms/src/directives';
 
 @NgModule({
   declarations: [
