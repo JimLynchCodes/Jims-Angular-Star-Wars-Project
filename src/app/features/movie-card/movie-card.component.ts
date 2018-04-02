@@ -19,7 +19,4 @@ export class MovieCardComponent {
 
     @Input() movie: any;
 
-    constructor() {
-        console.log('movie is: ', this.movie)
-    }
 }
