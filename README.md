@@ -13,6 +13,7 @@ This project was created as a submission to a coding challenge. It's nice exampl
 - Allows user to choose characters loaded from json.
 - Upon selection of character, UI updates to show movies that character has appearing in with date in the format 'Thursday, May 19, 2005' (and catches response in redux store so request for data is only made per character).
 - Waits until character is clicked to load data (and clears movie list if empty string is entered).
+- Scales to fit nicely on various devices and screen sizes.
 - Gracefully handles purposely bad url for Obie-wan.
 - Is pretty?
 
