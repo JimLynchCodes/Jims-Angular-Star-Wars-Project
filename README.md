@@ -3,9 +3,10 @@
 
 
 
-<img src="./Jims-star-wars-tool-demo.gif"/>
+_Try the live demo [here](www.google.com)!_
 
-<img src="./gg.gif" width="400"/>
+<img src="./gg.gif"/>
+
 Scaffolded from the awesome [Angular Webpack Starter](https://github.com/qdouble/angular-webpack-starter) project.
 
 ## Features
