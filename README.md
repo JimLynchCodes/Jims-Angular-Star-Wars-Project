@@ -100,4 +100,4 @@ For e2e tests, use `yarn run e2e`. To run unit test and e2e test at the same tim
 
 ### Special Thanks
 
-Thanks to the talented and friendly dev team at [American Express](https://jobs.americanexpress.com/tech) for inspiring me to create this project.
+Thanks to the talented and friendly dev team at [American Express](https://jobs.americanexpress.com/tech) for inspiring me to create this project!
