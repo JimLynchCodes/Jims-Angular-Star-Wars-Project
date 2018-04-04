@@ -8,7 +8,7 @@ _Try the live demo [here](https://jimtheman.github.io/Jims-Angular-Star-Wars-Pro
 
 ## About This Project
 
-This project was created as a submission to a coding challenge. It's nice example of an Angular 5 example that uses Ngrx and makes GET requests. 
+This project was created as a submission to a coding challenge. It's nice example of an Angular 5 project that uses Ngrx and makes GET requests. 
 
 - Allows user to choose characters loaded from json.
 - Upon selection of character, UI updates to show movies that character has appearing in with date in the format 'Thursday, May 19, 2005' (and catches response in redux store so request for data is only made per character).
@@ -97,3 +97,7 @@ For unit tests, use `yarn run test` for continuous testing in watch mode and use
 `yarn run test:once` for single test. To view code coverage after running test, open `coverage/html/index.html` in your browser.
 
 For e2e tests, use `yarn run e2e`. To run unit test and e2e test at the same time, use `yarn run ci`.
+
+### Special Thanks
+
+Thanks to the talented and friendly dev team at [American Express](https://jobs.americanexpress.com/tech) for inspiring me to create this project.
